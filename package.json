@@ -2,5 +2,9 @@
   "name": "sentry-use",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@sentry/node": "^6.2.2",
+    "@sentry/tracing": "^6.2.2"
+  }
 }
