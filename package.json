@@ -6,5 +6,8 @@
   "dependencies": {
     "@sentry/node": "^6.2.2",
     "@sentry/tracing": "^6.2.2"
+  },
+  "scripts": {
+    "dcmp": "docker-compose"
   }
 }

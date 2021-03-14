@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  postgres:
+    image: postgres:12.5
+    environment:
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_USER: "postgres"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+    ports:
+      - "9000:5432"
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
