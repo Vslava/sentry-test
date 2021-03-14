@@ -2,10 +2,16 @@ const express = require('express');
 const Sentry = require("@sentry/node");
 const Tracing = require("@sentry/tracing");
 
+require('dotenv').config();
+
+const {
+  SENTRY_DSN
+} = require('./config');
+
 const app = express();
 
 Sentry.init({
-  dsn: process.env.SENTRY_DSN,
+  dsn: SENTRY_DSN,
 
   // Set tracesSampleRate to 1.0 to capture 100%
   // of transactions for performance monitoring.
