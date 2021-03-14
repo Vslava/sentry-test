@@ -2,11 +2,13 @@ const express = require('express');
 const Sentry = require("@sentry/node");
 const Tracing = require("@sentry/tracing");
 
-require('dotenv').config();
+const {
+  SENTRY_DSN,
+} = require('./config');
 
 const {
-  SENTRY_DSN
-} = require('./config');
+  TestItem,
+} = require('./models');
 
 const app = express();
 
@@ -21,8 +23,12 @@ Sentry.init({
 
 app.use(Sentry.Handlers.requestHandler());
 
-app.get('/', (req, res) => {
-  res.end('Hello world!');
+app.get('/', (req, res, next) => {
+  TestItem.findAll({
+    raw: true,
+  }).then((items) => {
+    res.send(items);
+  }).catch(next);
 });
 
 app.get('/check-error', (req, res) => {
