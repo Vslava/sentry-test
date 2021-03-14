@@ -11,5 +11,8 @@
   "scripts": {
     "start": "node ./index.js",
     "dcmp": "docker-compose"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   }
 }
