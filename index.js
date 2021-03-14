@@ -19,6 +19,10 @@ app.get('/', (req, res) => {
   res.end('Hello world!');
 });
 
+app.get('/check-error', (req, res) => {
+  throw new Error('Test express problem');
+});
+
 app.use(Sentry.Handlers.errorHandler());
 
 app.listen(3000);
